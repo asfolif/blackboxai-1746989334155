@@ -1,0 +1,26 @@
+type CreditCard {
+    id: ID!
+    cardholderName: String!
+    cardNumber: String!
+    expiryDate: String!
+}
+
+type Query {
+    getCreditCard(id: ID!): CreditCard
+    getCreditCardByNumber(cardNumber: String!): CreditCard
+    getAllCreditCards: [CreditCard!]!
+}
+
+type Mutation {
+    createCreditCard(
+        cardholderName: String!,
+        cardNumber: String!,
+        expiryDate: String!,
+        cvv: String!
+    ): CreditCard!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
